@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostMappingRecord", "HostMappingRecord\HostMappingRecord.csproj", "{AE964939-3D51-4DF3-9058-11C720391A31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE964939-3D51-4DF3-9058-11C720391A31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE964939-3D51-4DF3-9058-11C720391A31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE964939-3D51-4DF3-9058-11C720391A31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE964939-3D51-4DF3-9058-11C720391A31}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41FEC797-11A7-40BF-95D0-7F92B11EE145}
+	EndGlobalSection
+EndGlobal
