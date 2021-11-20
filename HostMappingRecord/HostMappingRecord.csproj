@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{AE964939-3D51-4DF3-9058-11C720391A31}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>HostMappingRecord</RootNamespace>
-    <AssemblyName>HostMappingRecord</AssemblyName>
+    <RootNamespace>HostMappingRecorder</RootNamespace>
+    <AssemblyName>HostMappingRecorder</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -75,6 +75,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
