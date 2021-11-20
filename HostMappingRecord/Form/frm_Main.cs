@@ -85,7 +85,8 @@ namespace HostMappingRecord
                 return;
             }
 
-            changed = true;
+            if (!afterText.Equals(beforeText))
+                changed = true;
         }
 
         private void dgv_HostMapping_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -107,7 +108,7 @@ namespace HostMappingRecord
 
         private void tsmi_DeleteNode_Click(object sender, EventArgs e)
         {
-            if(dgv_HostMapping.SelectedRows!=null && dgv_HostMapping.SelectedRows.Count>0)
+            if (dgv_HostMapping.SelectedRows != null && dgv_HostMapping.SelectedRows.Count > 0)
             {
                 DialogResult dr = MessageBox.Show("确认要删除选中行?", "Q", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.No)
