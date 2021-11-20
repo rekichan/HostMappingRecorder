@@ -10,9 +10,6 @@ namespace HostMappingRecord
 
         #region Properties
         public static cls_Config config;
-        public static string host;
-        public static string port;
-        public static string userName;
         private object lockobject;//多线程被锁对象
         private string iniPath;
         #endregion
