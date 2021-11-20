@@ -184,6 +184,10 @@ namespace HostMappingRecord
             hostsPath = config.IniReadValue("SystemConfig", "HostsPath", @"C:\Windows\System32\drivers\etc\hosts");
             regexSplit = config.IniReadValue("SystemConfig", "RegexSplit", "^");
 
+            //防止文件一开始不存在，将默认值写入到config中
+            config.IniWriteValue("SystemConfig", "HostsPath",hostsPath);
+            config.IniWriteValue("SystemConfig", "RegexSplit", regexSplit);
+
             //判断文件是否存在
             if (!File.Exists(hostsPath))
             {
