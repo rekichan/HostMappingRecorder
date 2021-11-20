@@ -236,16 +236,17 @@ namespace HostMappingRecord
                 return;
             }
 
-            int dgvCnt = dgv_HostMapping.Rows[0].Cells.Count;
+            int dgvCnt = dgv_HostMapping.Rows.Count;
             for (int i = 0; i < dgvCnt; i++)
             {
-                if (dgv_HostMapping.Rows[0].Cells[i].Value.ToString().Equals(name))
+                if (dgv_HostMapping.Rows[i].Cells[0].Value.ToString().Equals(name))
                 {
                     MessageBox.Show(string.Format("列表中已存在此主机名:{0}!", name), "warn", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }
 
+            txt_HostName.Text = "";
             DataGridViewRow dgvr = new DataGridViewRow();
             DataGridViewTextBoxCell hnCell = new DataGridViewTextBoxCell();
             DataGridViewTextBoxCell ipCell = new DataGridViewTextBoxCell();
@@ -254,8 +255,7 @@ namespace HostMappingRecord
             dgvr.Cells.Add(hnCell);
             dgvr.Cells.Add(ipCell);
             dgv_HostMapping.Rows.Add(dgvr);
-
-            txt_HostName.Text = "";
+            dgv_HostMapping.FirstDisplayedScrollingRowIndex = dgv_HostMapping.Rows.Count - 1;
             changed = true;
 
             /*int cnt = lv_HostMapping.Items.Count;

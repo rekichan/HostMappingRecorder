@@ -54,7 +54,7 @@ namespace HostMappingRecord
             this.btn_Record.Name = "btn_Record";
             this.btn_Record.Size = new System.Drawing.Size(75, 40);
             this.btn_Record.TabIndex = 0;
-            this.btn_Record.Text = "记录";
+            this.btn_Record.Text = "新增";
             this.btn_Record.UseVisualStyleBackColor = true;
             this.btn_Record.Click += new System.EventHandler(this.btn_Record_Click);
             // 
