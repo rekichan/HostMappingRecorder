@@ -38,11 +38,14 @@ namespace HostMappingRecord
             this.label2 = new System.Windows.Forms.Label();
             this.grp_NewHost = new System.Windows.Forms.GroupBox();
             this.btn_SaveHosts = new System.Windows.Forms.Button();
-            this.lv_HostMapping = new System.Windows.Forms.ListView();
-            this.cms_Tv = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cms_Dgv = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmi_DeleteNode = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgv_HostMapping = new System.Windows.Forms.DataGridView();
+            this.col_HostName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_IP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grp_NewHost.SuspendLayout();
-            this.cms_Tv.SuspendLayout();
+            this.cms_Dgv.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_HostMapping)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Record
@@ -114,26 +117,13 @@ namespace HostMappingRecord
             this.btn_SaveHosts.UseVisualStyleBackColor = true;
             this.btn_SaveHosts.Click += new System.EventHandler(this.btn_SaveHosts_Click);
             // 
-            // lv_HostMapping
+            // cms_Dgv
             // 
-            this.lv_HostMapping.ContextMenuStrip = this.cms_Tv;
-            this.lv_HostMapping.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lv_HostMapping.HideSelection = false;
-            this.lv_HostMapping.Location = new System.Drawing.Point(0, 127);
-            this.lv_HostMapping.MultiSelect = false;
-            this.lv_HostMapping.Name = "lv_HostMapping";
-            this.lv_HostMapping.Size = new System.Drawing.Size(382, 328);
-            this.lv_HostMapping.TabIndex = 7;
-            this.lv_HostMapping.UseCompatibleStateImageBehavior = false;
-            this.lv_HostMapping.View = System.Windows.Forms.View.Details;
-            // 
-            // cms_Tv
-            // 
-            this.cms_Tv.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cms_Tv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cms_Dgv.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cms_Dgv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_DeleteNode});
-            this.cms_Tv.Name = "cms_Tv";
-            this.cms_Tv.Size = new System.Drawing.Size(139, 28);
+            this.cms_Dgv.Name = "cms_Tv";
+            this.cms_Dgv.Size = new System.Drawing.Size(139, 28);
             // 
             // tsmi_DeleteNode
             // 
@@ -142,12 +132,52 @@ namespace HostMappingRecord
             this.tsmi_DeleteNode.Text = "删除本项";
             this.tsmi_DeleteNode.Click += new System.EventHandler(this.tsmi_DeleteNode_Click);
             // 
+            // dgv_HostMapping
+            // 
+            this.dgv_HostMapping.AllowUserToAddRows = false;
+            this.dgv_HostMapping.AllowUserToResizeColumns = false;
+            this.dgv_HostMapping.AllowUserToResizeRows = false;
+            this.dgv_HostMapping.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_HostMapping.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_HostMapping.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col_HostName,
+            this.col_IP});
+            this.dgv_HostMapping.ContextMenuStrip = this.cms_Dgv;
+            this.dgv_HostMapping.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_HostMapping.Location = new System.Drawing.Point(0, 127);
+            this.dgv_HostMapping.MultiSelect = false;
+            this.dgv_HostMapping.Name = "dgv_HostMapping";
+            this.dgv_HostMapping.RowHeadersVisible = false;
+            this.dgv_HostMapping.RowHeadersWidth = 51;
+            this.dgv_HostMapping.RowTemplate.Height = 27;
+            this.dgv_HostMapping.Size = new System.Drawing.Size(382, 328);
+            this.dgv_HostMapping.TabIndex = 8;
+            this.dgv_HostMapping.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgv_HostMapping_CellBeginEdit);
+            this.dgv_HostMapping.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_HostMapping_CellEndEdit);
+            this.dgv_HostMapping.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_HostMapping_CellMouseDown);
+            // 
+            // col_HostName
+            // 
+            this.col_HostName.HeaderText = "HostName";
+            this.col_HostName.MinimumWidth = 6;
+            this.col_HostName.Name = "col_HostName";
+            this.col_HostName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.col_HostName.Width = 191;
+            // 
+            // col_IP
+            // 
+            this.col_IP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col_IP.HeaderText = "IPAddress";
+            this.col_IP.MinimumWidth = 6;
+            this.col_IP.Name = "col_IP";
+            this.col_IP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 455);
-            this.Controls.Add(this.lv_HostMapping);
+            this.Controls.Add(this.dgv_HostMapping);
             this.Controls.Add(this.grp_NewHost);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -158,10 +188,12 @@ namespace HostMappingRecord
             this.Name = "frm_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "主机映射工具";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_Main_FormClosing);
             this.Load += new System.EventHandler(this.frm_Main_Load);
             this.grp_NewHost.ResumeLayout(false);
             this.grp_NewHost.PerformLayout();
-            this.cms_Tv.ResumeLayout(false);
+            this.cms_Dgv.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_HostMapping)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -174,10 +206,12 @@ namespace HostMappingRecord
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox grp_NewHost;
-        private System.Windows.Forms.ListView lv_HostMapping;
         private System.Windows.Forms.Button btn_SaveHosts;
-        private System.Windows.Forms.ContextMenuStrip cms_Tv;
+        private System.Windows.Forms.ContextMenuStrip cms_Dgv;
         private System.Windows.Forms.ToolStripMenuItem tsmi_DeleteNode;
+        private System.Windows.Forms.DataGridView dgv_HostMapping;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_HostName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_IP;
     }
 }
 
